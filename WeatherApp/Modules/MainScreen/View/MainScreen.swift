@@ -14,30 +14,31 @@ struct MainScreen: View {
         ZStack{
             var background = viewModel.isDay ? "Day" : "Night"
                 Image(background)
+//                .resizable()
+//                .frame(width: 400, height: 900)
+                .aspectRatio(contentMode: .fit)
             VStack{
                 Spacer()
                 Text("\(viewModel.city ?? "Unknown")")
                         .font(.largeTitle)
                         .bold()
                         .foregroundStyle(viewModel.isDay ? Color.black : Color.white)
-                Text("\(viewModel.temp ?? "")°")
+                Text("\(viewModel.temp ?? "-100")°")
                         .font(.largeTitle)
                         .bold()
                         .foregroundStyle(viewModel.isDay ? Color.black : Color.white)
-                Text("\(viewModel.current?.condition?.text ?? "")")
+                Text("\(viewModel.current?.condition?.text ?? "Test")")
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .foregroundStyle(viewModel.isDay ? Color.black : Color.white)
                 Spacer()
                 Text("3-Day Forecast")
                     .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 200))
                     .foregroundStyle(viewModel.isDay ? Color.black : Color.white)
-                Divider()
-                DayForecastListItem(day: "Today", isDay: viewModel.isDay, forecastDay: viewModel.forecastDays?.first ?? Forecastday())
-                Divider()
-                DayForecastListItem(day: "Sun", isDay: viewModel.isDay, forecastDay: viewModel.forecastDays?[1] ?? Forecastday())
-                Divider()
-                    .bold()
-                DayForecastListItem(day: "Mon", isDay: viewModel.isDay, forecastDay: viewModel.forecastDays?[2] ?? Forecastday())
+                ForEach(0...2, id: \.self){
+                    index in
+                    Divider()
+                    DayForecastListItem(day: "\(viewModel.getDayName(AtIndex: index))", isDay: viewModel.isDay, forecastDay: viewModel.forecastDays?[index] ?? Forecastday())
+                }
                 Spacer()
                 Grid(alignment: .center){
                     GridRow{
@@ -46,7 +47,7 @@ struct MainScreen: View {
                     }
                     GridRow{
                         GridItem(title: "Feels Like", value: viewModel.current?.feelslikeC ?? 0.0, unit: "°", isDay: viewModel.isDay)
-                        GridItem(title: "Pressure", value: viewModel.current?.precipMm ?? 0.0, unit: "hPa", isDay: viewModel.isDay)
+                        GridItem(title: "Pressure", value: viewModel.current?.precipMm ?? 0.0, unit: "", isDay: viewModel.isDay)
                     }
                 }
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 25, trailing: 0))

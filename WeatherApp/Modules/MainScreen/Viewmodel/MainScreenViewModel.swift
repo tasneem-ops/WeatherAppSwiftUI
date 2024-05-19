@@ -47,9 +47,11 @@ class MainScreenViewModel :  NSObject, ObservableObject, CLLocationManagerDelega
             self.image = "https:" + (data?.current?.condition?.icon ?? "")
             self.forecastDays = data?.forecast?.forecastday
             self.current = data?.current
+            print(data?.current)
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print("Location Error")
         print(error)
     }
     func checkAuthorization(){
@@ -65,15 +67,20 @@ class MainScreenViewModel :  NSObject, ObservableObject, CLLocationManagerDelega
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         if(hour < 5 || hour >= 18){
-            print("Night")
             return false
         }
         else{
-            print("Day")
             return true
         }
-        print(hour)
-        let minutes = calendar.component(.minute, from: date)
-        print(minutes)
+    }
+    func getDayName(AtIndex x : Int) -> String{
+        if(x == 0){
+            return "Today"
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE"
+        let result = formatter.string(from: Date(timeIntervalSince1970: Double(forecastDays?[x].dateEpoch ?? 0)))
+        print(result)
+        return result
     }
 }

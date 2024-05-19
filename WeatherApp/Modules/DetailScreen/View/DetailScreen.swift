@@ -14,9 +14,11 @@ struct DetailScreen: View {
             let background = viewModel.isDay ? "Day" : "Night"
             Image(background)
             
-            List(viewModel.hourForecasts){hour in
-                HourForecastItem(hour: hour, isDay: viewModel.isDay)
-                    .listRowBackground(Color.clear)
+            List{
+                ForEach(viewModel.hourForecasts, id: \.timeEpoch){ hour in
+                    HourForecastItem(timeString: viewModel.getHourString(for: hour),hour: hour, isDay: viewModel.isDay)
+                        .listRowBackground(Color.clear)
+                }
             }
             .scrollContentBackground(.hidden)
             .padding(EdgeInsets(top: 64, leading: 8, bottom: 25, trailing: 8))
