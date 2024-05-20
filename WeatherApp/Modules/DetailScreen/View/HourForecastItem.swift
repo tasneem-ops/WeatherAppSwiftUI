@@ -15,15 +15,14 @@ struct HourForecastItem: View {
     var body: some View {
         HStack{
             Spacer()
-            Text(timeString)
-                .foregroundStyle(isDay ? Color.black : Color.white)
+            CustomText(text: timeString, isDay: isDay)
             Spacer()
             KFImage(URL(string: "https:\(hour.condition?.icon ?? "")"))
                 .resizable()
                 .frame(width: 50, height: 50)
             Spacer()
-            Text(String(format: "%.1f", (hour.tempC ?? 0.0)) + "°")
-                .foregroundStyle(isDay ? Color.black : Color.white)
+            CustomText(text: String(format: "%.1f", (hour.tempC ?? 0.0)) + "°",
+                       isDay: isDay)
             Spacer()
         }
     }

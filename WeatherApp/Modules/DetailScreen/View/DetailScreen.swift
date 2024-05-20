@@ -12,7 +12,7 @@ struct DetailScreen: View {
     var body: some View {
         ZStack{
             let background = viewModel.isDay ? "Day" : "Night"
-            Image(background)
+            BackgroundImage(background: background)
             
             List{
                 ForEach(viewModel.hourForecasts, id: \.timeEpoch){ hour in
@@ -21,7 +21,7 @@ struct DetailScreen: View {
                 }
             }
             .scrollContentBackground(.hidden)
-            .padding(EdgeInsets(top: 64, leading: 8, bottom: 25, trailing: 8))
+            .padding(EdgeInsets(top: 64, leading: 8, bottom: 64, trailing: 8))
             
         }
     }

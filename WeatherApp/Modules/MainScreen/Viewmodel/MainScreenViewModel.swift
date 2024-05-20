@@ -16,6 +16,7 @@ class MainScreenViewModel :  NSObject, ObservableObject, CLLocationManagerDelega
     @Published var isDay : Bool = true
     @Published var forecastDays : [Forecastday]?
     @Published var current : Current?
+    @Published var dayConditions : Day?
     var latitude : Double!
     var longitude : Double!
     var networkService : any INetworkService<ForecastResult>
@@ -38,8 +39,8 @@ class MainScreenViewModel :  NSObject, ObservableObject, CLLocationManagerDelega
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Location is Updated")
-        latitude = locations.last?.coordinate.latitude
-        longitude = locations.last?.coordinate.longitude
+        latitude = locations.first?.coordinate.latitude
+        longitude = locations.first?.coordinate.longitude
         networkService.fetchData(url: "https://api.weatherapi.com/v1/forecast.json?key=32f99e53c59f4cf0a0080205241605&q=\(longitude ?? 31.0),\(latitude ?? 30.0)&days=3&aqi=no&alerts=no"){
             data, error in
             self.temp = String(format: "%.1f", data?.current?.tempC ?? 0.0)
@@ -47,7 +48,7 @@ class MainScreenViewModel :  NSObject, ObservableObject, CLLocationManagerDelega
             self.image = "https:" + (data?.current?.condition?.icon ?? "")
             self.forecastDays = data?.forecast?.forecastday
             self.current = data?.current
-            print(data?.current)
+            self.dayConditions = data?.forecast?.forecastday?.first?.day
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {

@@ -16,6 +16,9 @@
 		1EA152B02BF60FE9001B0B99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EA152AF2BF60FE9001B0B99 /* Preview Assets.xcassets */; };
 		1EA152B72BF610B8001B0B99 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA152B62BF610B8001B0B99 /* MainScreen.swift */; };
 		1EA152BF2BF635DF001B0B99 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA152BE2BF635DF001B0B99 /* MainScreenViewModel.swift */; };
+		1EEA03812BFB52EB00FEDF8A /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEA03802BFB52EB00FEDF8A /* BackgroundImage.swift */; };
+		1EEA03832BFB536B00FEDF8A /* ConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEA03822BFB536B00FEDF8A /* ConditionsView.swift */; };
+		1EEA03852BFB67E100FEDF8A /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEA03842BFB67E100FEDF8A /* CustomText.swift */; };
 		855A5B122BF8910400D675CF /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855A5B112BF8910400D675CF /* DetailScreen.swift */; };
 		855A5B142BF8A37F00D675CF /* DayForecastListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855A5B132BF8A37F00D675CF /* DayForecastListItem.swift */; };
 		85BD5F3A2BF912580066DF6D /* GridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BD5F392BF912570066DF6D /* GridItem.swift */; };
@@ -41,6 +44,9 @@
 		1EA152AF2BF60FE9001B0B99 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1EA152B62BF610B8001B0B99 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		1EA152BE2BF635DF001B0B99 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
+		1EEA03802BFB52EB00FEDF8A /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
+		1EEA03822BFB536B00FEDF8A /* ConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsView.swift; sourceTree = "<group>"; };
+		1EEA03842BFB67E100FEDF8A /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
 		855A5B112BF8910400D675CF /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
 		855A5B132BF8A37F00D675CF /* DayForecastListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayForecastListItem.swift; sourceTree = "<group>"; };
 		85BD5F392BF912570066DF6D /* GridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItem.swift; sourceTree = "<group>"; };
@@ -134,6 +140,9 @@
 				85BD5F392BF912570066DF6D /* GridItem.swift */,
 				855A5B132BF8A37F00D675CF /* DayForecastListItem.swift */,
 				1EA152B62BF610B8001B0B99 /* MainScreen.swift */,
+				1EEA03802BFB52EB00FEDF8A /* BackgroundImage.swift */,
+				1EEA03822BFB536B00FEDF8A /* ConditionsView.swift */,
+				1EEA03842BFB67E100FEDF8A /* CustomText.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,9 +295,11 @@
 				85BD5F3D2BF914DF0066DF6D /* DetailViewModel.swift in Sources */,
 				85C7F7E22BF7F91C00BE2503 /* Current.swift in Sources */,
 				85C7F7E42BF7F93A00BE2503 /* Hour.swift in Sources */,
+				1EEA03812BFB52EB00FEDF8A /* BackgroundImage.swift in Sources */,
 				1EA152B72BF610B8001B0B99 /* MainScreen.swift in Sources */,
 				85BD5F422BF9209F0066DF6D /* HourForecast.swift in Sources */,
 				85BD5F3A2BF912580066DF6D /* GridItem.swift in Sources */,
+				1EEA03852BFB67E100FEDF8A /* CustomText.swift in Sources */,
 				1EA152BF2BF635DF001B0B99 /* MainScreenViewModel.swift in Sources */,
 				85C7F7E82BF7F97B00BE2503 /* Forecast.swift in Sources */,
 				85BD5F3F2BF91CBF0066DF6D /* HourForecastItem.swift in Sources */,
@@ -299,6 +310,7 @@
 				85C7F7E62BF7F96100BE2503 /* ForecastDay.swift in Sources */,
 				85C7F7DA2BF7F87E00BE2503 /* ForecastResult.swift in Sources */,
 				85C7F7DC2BF7F8B500BE2503 /* Location.swift in Sources */,
+				1EEA03832BFB536B00FEDF8A /* ConditionsView.swift in Sources */,
 				85C7F7EB2BF7F9DD00BE2503 /* NetworkService.swift in Sources */,
 				855A5B122BF8910400D675CF /* DetailScreen.swift in Sources */,
 				1EA152A92BF60FE8001B0B99 /* WeatherAppApp.swift in Sources */,

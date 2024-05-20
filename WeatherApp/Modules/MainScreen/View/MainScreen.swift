@@ -13,27 +13,13 @@ struct MainScreen: View {
         NavigationView{
         ZStack{
             var background = viewModel.isDay ? "Day" : "Night"
-                Image(background)
-//                .resizable()
-//                .frame(width: 400, height: 900)
-                .aspectRatio(contentMode: .fit)
+            BackgroundImage(background: background)
             VStack{
                 Spacer()
-                Text("\(viewModel.city ?? "Unknown")")
-                        .font(.largeTitle)
-                        .bold()
-                        .foregroundStyle(viewModel.isDay ? Color.black : Color.white)
-                Text("\(viewModel.temp ?? "-100")°")
-                        .font(.largeTitle)
-                        .bold()
-                        .foregroundStyle(viewModel.isDay ? Color.black : Color.white)
-                Text("\(viewModel.current?.condition?.text ?? "Test")")
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .foregroundStyle(viewModel.isDay ? Color.black : Color.white)
+                ConditionsView(dayCondition: viewModel.dayConditions, city: viewModel.city, isDay: viewModel.isDay, temp: viewModel.temp)
                 Spacer()
-                Text("3-Day Forecast")
+                CustomText(text: "3-Day Forecast", isDay: viewModel.isDay)
                     .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 200))
-                    .foregroundStyle(viewModel.isDay ? Color.black : Color.white)
                 ForEach(0...2, id: \.self){
                     index in
                     Divider()
@@ -55,6 +41,7 @@ struct MainScreen: View {
                 }
             .padding(EdgeInsets(top: 28, leading: 0, bottom: 0, trailing: 0))
             }
+        .padding(EdgeInsets(top: 32, leading: 0, bottom: 0, trailing: 0))
         }
         .navigationTitle("Forecast")
     }
